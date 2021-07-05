@@ -1,0 +1,167 @@
+{
+ "actions": [],
+ "creation": "2021-07-05 14:53:26.901120",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "property_details_section",
+  "property_idname",
+  "property_owner",
+  "status",
+  "property_price",
+  "property_type",
+  "column_break_5",
+  "property_locationaddress",
+  "dimensions",
+  "width",
+  "length",
+  "section_break_13",
+  "property_map",
+  "property_coordinates_section",
+  "property_coordinates",
+  "property_features_section",
+  "air_conditioning",
+  "built_in_wardrobes",
+  "column_break_11",
+  "broadband",
+  "garage_space"
+ ],
+ "fields": [
+  {
+   "fieldname": "property_details_section",
+   "fieldtype": "Section Break",
+   "label": "Property Details"
+  },
+  {
+   "fieldname": "property_idname",
+   "fieldtype": "Data",
+   "label": "Property ID/Name"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Listing Status",
+   "options": "Available\nSold\nClosed\nTemporarily Off Market"
+  },
+  {
+   "fieldname": "property_price",
+   "fieldtype": "Currency",
+   "label": "Property Price"
+  },
+  {
+   "fieldname": "property_type",
+   "fieldtype": "Select",
+   "label": "Property Type",
+   "options": "House\nApartment\nVilla\nLand"
+  },
+  {
+   "fieldname": "property_locationaddress",
+   "fieldtype": "Data",
+   "label": "Property Location/Address"
+  },
+  {
+   "fieldname": "dimensions",
+   "fieldtype": "Data",
+   "label": "Dimensions"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "property_features_section",
+   "fieldtype": "Section Break",
+   "label": "Property Features"
+  },
+  {
+   "default": "0",
+   "fieldname": "air_conditioning",
+   "fieldtype": "Check",
+   "label": "Air conditioning"
+  },
+  {
+   "default": "0",
+   "fieldname": "built_in_wardrobes",
+   "fieldtype": "Check",
+   "label": "Built-In Wardrobes"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "broadband",
+   "fieldtype": "Check",
+   "label": "Broadband "
+  },
+  {
+   "default": "0",
+   "fieldname": "garage_space",
+   "fieldtype": "Check",
+   "label": "Garage space"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "length",
+   "fieldtype": "Data",
+   "label": "Length"
+  },
+  {
+   "fieldname": "width",
+   "fieldtype": "Data",
+   "label": "Width"
+  },
+  {
+   "fieldname": "property_owner",
+   "fieldtype": "Data",
+   "label": "Property Owner"
+  },
+  {
+   "fieldname": "property_coordinates",
+   "fieldtype": "Table",
+   "label": "Coordinates",
+   "options": "Property Coordinates"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "property_coordinates_section",
+   "fieldtype": "Section Break",
+   "label": "Property Coordinates"
+  },
+  {
+   "fieldname": "property_map",
+   "fieldtype": "Geolocation",
+   "label": "Property Map"
+  },
+  {
+   "fieldname": "section_break_13",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-07-05 15:39:34.741872",
+ "modified_by": "Administrator",
+ "module": "Real Estate",
+ "name": "Property",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -173,3 +173,21 @@ user_data_fields = [
 # 	"real_estate.auth.validate"
 # ]
 
+fixtures = [
+    {
+        "dt": "Custom Field",
+        "filters": [
+            [
+                "name", "in", [
+                    "Opportunity-price",
+                    "Opportunity-property_owner"
+                    "Opportunity-column_break_29",
+                    "Opportunity-property_id",
+                    "Opportunity-dimensions",
+                    "Opportunity-property_type",
+                    "Opportunity-property_details",
+                ]
+            ]
+        ]
+    }
+]
