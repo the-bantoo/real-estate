@@ -1,14 +1,24 @@
 import frappe
 from frappe import _
+"""
+def create_sales_order(opportunity, method):
+    sales_order = frappe.get_doc({
+	"doctype": "Sales Order",
+	"customer": "My new project",
+	"status": "Open"
+    })
+    sales_order.insert()
+"""
 
 @frappe.whitelist()
-def insert_lead(name):
-    opportunity = frappe.get_all('Opportunity', filters={'property_id': name}, fields=['price', 'property_bidding'])
-    frappe.errprint(opportunity.price)
-    """if name == opportunity.property_id:
-        row = opportunity.append("property bidding", {
-            "item_code": "Mentee Membership",
-			"item_name": "Mentee Membership",
-			"description": "Mentor Membership",
-            })
-        row.insert()"""
+def insert_lead(id, name):
+    opportunity = frappe.get_all('Opportunity', filters={'property_id': id})
+    length = len(opportunity)
+    if length != 0:
+        for value in opportunity:
+            x = value.get('name')
+            z = frappe.get_doc('Opportunity', x)
+            row = z.append("property_bidding", {
+                "lead": name,
+                })
+            row.insert()
