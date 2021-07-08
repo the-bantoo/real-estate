@@ -1,0 +1,67 @@
+{
+ "actions": [],
+ "creation": "2021-07-06 10:45:39.041996",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "lead",
+  "lead_type",
+  "sales_person",
+  "down_payment",
+  "amount"
+ ],
+ "fields": [
+  {
+   "fetch_from": "lead.lead_owner",
+   "fieldname": "sales_person",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Sales Person",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "lead.sales_offer",
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount",
+   "reqd": 1
+  },
+  {
+   "fieldname": "lead",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Lead",
+   "options": "Lead"
+  },
+  {
+   "fetch_from": "lead.type",
+   "fieldname": "lead_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Lead Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "down_payment",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Down Payment",
+   "options": "Payment Entry"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-07-08 09:45:09.087368",
+ "modified_by": "Administrator",
+ "module": "Real Estate",
+ "name": "Property Bidding",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

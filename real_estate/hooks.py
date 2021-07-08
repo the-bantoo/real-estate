@@ -97,6 +97,12 @@ app_license = "MIT"
 #	}
 # }
 
+doc_events = {
+	"Property": {
+		"on_update": "real_estate.api.set_property_qr",
+	}
+}
+
 # Scheduled Tasks
 # ---------------
 
@@ -179,15 +185,56 @@ fixtures = [
         "filters": [
             [
                 "name", "in", [
-                    "Opportunity-price",
-                    "Opportunity-property_owner"
-                    "Opportunity-column_break_29",
+                    "Opportunity-counter_offer",
                     "Opportunity-property_id",
-                    "Opportunity-dimensions",
-                    "Opportunity-property_type",
-                    "Opportunity-property_details",
+					"Opportunity-property_map",
+					"Opportunity-map",
+					"Opportunity-property_bidding",
+					"Opportunity-property_bids",
+					"Opportunity-property_details",
+					"Opportunity-workflow_state",
+					"Opportunity-property_column_break",
+					"Opportunity-dimensions",
+					"Opportunity-property_type",
+					"Opportunity-property_owner",
+					"Opportunity-price",
                 ]
             ]
         ]
-    }
+    },
+	{
+        "dt": "Client Script",
+        "filters": [
+            [
+                "name", "in", [
+                    "Lead-Form",
+                    "Opportunity-Form",
+                ]
+            ]
+        ]
+    },
+	{
+        "dt": "Lead",
+        "filters": [
+            [
+                "name", "in", [
+                    "Lead-sales_offer",
+                    "Lead-property_id",
+                ]
+            ]
+        ]
+    },
+	{
+        "dt": "Workflow State",
+    },
+	{
+        "dt": "Workflow",
+        "filters": [
+            [
+                "name", "in", [
+                    "Property Sale",
+                ]
+            ]
+        ]
+    },
 ]

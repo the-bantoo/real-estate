@@ -1,0 +1,28 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Opportunity",
+  "enabled": 1,
+  "modified": "2021-07-08 11:49:25.557012",
+  "name": "Opportunity-Form",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "script": "/*frappe.ui.form.on('Opportunity', {\n\tvalidate(frm, cdt, cdn) {\n\t\tlet selected = frm.get_selected();\n\t\tlet selected_name = selected.property_bidding[0];\n\t\tvar d = locals[cdt][cdn];\n\t\t\n\t\tlet customer_count = d.property_bidding.length;\n\t\tlet i=0;\n\t\t\n\t\twhile (i < customer_count) {\n\t\t    let arr = d.property_bidding[i];\n\t\t    if (selected_name == arr.name){\n\t\t        frm.set_value('party_name', arr.customer);\n\t\t    }\n\t\t    i++;\n\t\t    \n\t\t}\n\t\t\n\t}\n});*/\n\nfrappe.provide(\"erpnext.crm\");\n\nfrappe.ui.form.on('Opportunity', {\n    refresh: function(frm) {\n\t\tvar doc = frm.doc;\n\n\t\tif(!doc.__islocal && doc.status!==\"Lost\") {\n\n\t\t\tfrm.add_custom_button(__('Sales Order'),\n\t\t\t\tfunction() {\n            \t\tfrappe.model.open_mapped_doc({\n            \t\t\tmethod: \"real_estate.api.make_sales_order\",\n            \t\t\tfrm: cur_frm\n            \t\t})\n            \t}, __('Create'));\n\t\t}\n    },\n    \n\tafter_save(frm, cdt, cdn) {\n\t\tif (frm.doc.property_bidding.length > 0){\n\t\t    let selected = frm.get_selected();\n\t\t    let selected_name = selected.property_bidding[0];\n\t\t    var d = locals[cdt][cdn];\n\t\t\n\t\t    let customer_count = d.property_bidding.length;\n\t\t    let i=0;\n\t\t    while (i < customer_count) {\n\t\t        let arr = d.property_bidding[i];\n\t\t        if (selected_name == arr.name){\n\t\t            frm.set_value('party_name', arr.customer);\n\t\t            \n\t\t        }\n\t\t        i++;\n\t\t    \n\t\t}\n\t\t    \n\t\t}\n\t\telse {\n\t\t    console.log(\"No rows!\");\n\t\t    \n\t\t}\n\t}\n});\n\n/*\nfrappe.ui.form.on('Opportunity', {\n\tafter_save(frm) {\n\t\tconsole.log(frm.doc.property_bidding.length);\n\t}\n});\n*/",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Lead",
+  "enabled": 0,
+  "modified": "2021-07-08 12:04:44.514997",
+  "name": "Lead-Form",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "script": "frappe.ui.form.on('Lead', {\n\tvalidate(frm) {\n\t\tfrappe.call({\n            method: \"real_estate.x.insert_lead\",\n            args: {\n            'doctype': 'Lead',\n            'name': frm.doc.property_id\n        },\n        });\n\t}\n});",
+  "view": "Form"
+ }
+]

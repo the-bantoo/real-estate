@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "autoname": "field:property_idname",
  "creation": "2021-07-05 14:53:26.901120",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -8,18 +9,23 @@
   "property_details_section",
   "property_idname",
   "property_owner",
+  "ownership_type",
   "status",
-  "property_price",
   "property_type",
   "column_break_5",
-  "property_locationaddress",
+  "property_price",
   "dimensions",
   "width",
   "length",
+  "qr_url",
+  "qr_code",
   "section_break_13",
   "property_map",
-  "property_coordinates_section",
-  "property_coordinates",
+  "location_details_section",
+  "latitude",
+  "longitude",
+  "column_break_17",
+  "area",
   "property_features_section",
   "air_conditioning",
   "built_in_wardrobes",
@@ -36,29 +42,28 @@
   {
    "fieldname": "property_idname",
    "fieldtype": "Data",
-   "label": "Property ID/Name"
+   "in_list_view": 1,
+   "label": "Property ID/Name",
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Listing Status",
-   "options": "Available\nSold\nClosed\nTemporarily Off Market"
+   "options": "\nAvailable\nSold\nClosed\nTemporarily Off Market"
   },
   {
    "fieldname": "property_price",
    "fieldtype": "Currency",
-   "label": "Property Price"
+   "label": "Property Price",
+   "reqd": 1
   },
   {
    "fieldname": "property_type",
    "fieldtype": "Select",
    "label": "Property Type",
-   "options": "House\nApartment\nVilla\nLand"
-  },
-  {
-   "fieldname": "property_locationaddress",
-   "fieldtype": "Data",
-   "label": "Property Location/Address"
+   "options": "\nHouse\nApartment\nVilla\nLand"
   },
   {
    "fieldname": "dimensions",
@@ -115,34 +120,73 @@
   },
   {
    "fieldname": "property_owner",
-   "fieldtype": "Data",
-   "label": "Property Owner"
-  },
-  {
-   "fieldname": "property_coordinates",
-   "fieldtype": "Table",
-   "label": "Coordinates",
-   "options": "Property Coordinates"
-  },
-  {
-   "collapsible": 1,
-   "fieldname": "property_coordinates_section",
-   "fieldtype": "Section Break",
-   "label": "Property Coordinates"
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Property Owner",
+   "options": "Customer",
+   "reqd": 1
   },
   {
    "fieldname": "property_map",
    "fieldtype": "Geolocation",
-   "label": "Property Map"
+   "label": "Map"
   },
   {
    "fieldname": "section_break_13",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Property Map"
+  },
+  {
+   "fieldname": "ownership_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Ownership Type",
+   "options": "\nCompany Property\nInvestor Property\nCustomer Property",
+   "reqd": 1
+  },
+  {
+   "fieldname": "location_details_section",
+   "fieldtype": "Section Break",
+   "label": "Location Details"
+  },
+  {
+   "fieldname": "latitude",
+   "fieldtype": "Float",
+   "label": "Latitude"
+  },
+  {
+   "fieldname": "longitude",
+   "fieldtype": "Float",
+   "label": "Longitude"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "area",
+   "fieldtype": "Float",
+   "label": "Area"
+  },
+  {
+   "fieldname": "qr_url",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "QR URL",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "qr_code",
+   "fieldtype": "Image",
+   "label": "QR Code",
+   "no_copy": 1,
+   "options": "qr_url"
   }
  ],
+ "image_field": "qr_url",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-07-05 15:39:34.741872",
+ "modified": "2021-07-08 13:59:21.914831",
  "modified_by": "Administrator",
  "module": "Real Estate",
  "name": "Property",
