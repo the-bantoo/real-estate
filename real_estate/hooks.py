@@ -100,7 +100,11 @@ app_license = "MIT"
 doc_events = {
 	"Property": {
 		"on_update": "real_estate.api.set_property_qr",
-	}
+	},
+    "Opportunity": {
+		#"on_update": "real_estate.x.create_customer",
+        #"validate": "real_estate.x.create_sales_order",
+	},
 }
 
 # Scheduled Tasks
